@@ -8,6 +8,8 @@ sys.path[:0] = [os.path.join(os.getcwd(), "demo")]
 
 
 def pytest_configure(config):
+    if settings.configured:
+        return
     settings.configure(
         DATABASE_ENGINE="sqlite3",
         DATABASES={
